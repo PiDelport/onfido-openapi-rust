@@ -3,7 +3,7 @@
 #
 # Docs: https://openapi-generator.tech/docs/generators/rust
 
-: "${version:="0.2.0-beta"}"
+: "${version:="0.2.1-beta"}"
 
 # Post-process script: Trim the default Markdown documentation links from the generated README.
 sed_readme_trim_docs="

@@ -3,7 +3,7 @@
 #
 # Spec: https://github.com/onfido/onfido-openapi-spec
 
-: "${version:="v2.0.1-beta"}"
+: "${version:="v2.1.0-beta"}"
 
 if test -d spec; then rm -r spec; fi
 mkdir spec
