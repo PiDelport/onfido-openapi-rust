@@ -9,7 +9,7 @@
  */
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct Report {
+pub struct ReportAllOf {
     /// The unique identifier for the report. Read-only.
     #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
@@ -31,20 +31,23 @@ pub struct Report {
     /// The ID of the check to which the report belongs. Read-only.
     #[serde(rename = "check_id", skip_serializing_if = "Option::is_none")]
     pub check_id: Option<String>,
+    /// The name of the report type.
     #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<Name>,
+    pub name: Option<String>,
     /// Array of objects with document ids that were used in the Onfido engine. [ONLY USED IN A DOCUMENT CHECK]
     #[serde(rename = "documents", skip_serializing_if = "Option::is_none")]
     pub documents: Option<Vec<crate::models::ReportDocument>>,
+    /// The details of the report. This is specific to each type of report.
     #[serde(rename = "breakdown", skip_serializing_if = "Option::is_none")]
-    pub breakdown: Option<Box<crate::models::IdentityEnhancedBreakdown>>,
+    pub breakdown: Option<serde_json::Value>,
+    /// The properties associated with the report, if any. Read-only.
     #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
-    pub properties: Option<Box<crate::models::IdentityEnhancedProperties>>,
+    pub properties: Option<::std::collections::HashMap<String, serde_json::Value>>,
 }
 
-impl Report {
-    pub fn new() -> Report {
-        Report {
+impl ReportAllOf {
+    pub fn new() -> ReportAllOf {
+        ReportAllOf {
             id: None,
             created_at: None,
             href: None,
@@ -58,11 +61,4 @@ impl Report {
             properties: None,
         }
     }
-}
-
-///
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Name {
-    #[serde(rename = "identity_enhanced")]
-    IdentityEnhanced,
 }
