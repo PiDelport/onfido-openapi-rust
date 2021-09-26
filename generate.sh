@@ -22,6 +22,8 @@ if test -d "${name}"; then rm -r "${name}"; fi
 ./openapi-generator-cli generate \
     --generator-name rust \
     --reserved-words-mappings 'type=type_' \
+    --template-dir 'rust-fixed' \
+    --type-mappings 'file=Vec<u8>' \
     --input-spec "$spec_file" \
     --ignore-file-override '.openapi-generator-ignore' \
     --library 'reqwest' \
