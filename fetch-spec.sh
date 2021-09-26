@@ -3,7 +3,7 @@
 #
 # Spec: https://github.com/onfido/onfido-openapi-spec
 
-: "${version:="v1.0.0"}"
+: "${version:="v2.0.1-beta"}"
 
 if test -d spec; then rm -r spec; fi
 mkdir spec
@@ -16,3 +16,10 @@ curl \
 tar -xz \
     --directory 'spec' \
     --strip-components=1
+
+# XXX: Hack some relative paths to make openapi-generator work.
+sed \
+    --in-place \
+    --expression 's#ref: #ref: schemas/reports/#' \
+    --expression 's#ref: schemas/reports/report_document[.]yaml#ref: report_document.yaml#' \
+    'spec/schemas/reports/report.yaml'
