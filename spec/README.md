@@ -1,15 +1,12 @@
-# Onfido OpenAPI Specification
+# Onfido OpenAPI specification (beta)
 
-Onfido's OpenAPI specification (current API version: v3).
+:warning: We are currently expanding our OpenAPI specification to include all report responses. It is in beta and we welcome any feedback. You can contact us via the issues tab or [email](mailto:openapi-feedback@onfido.com), but we don't yet officially support this specification. :warning:
 
-Used to generate client libraries for the v3 API in the following languages:
+This specification supports Onfido API v3 onwards.
 
-* [PHP](https://github.com/onfido/api-php-client)
+For our latest stable release that is officially supported please use [v1.0.0](https://github.com/onfido/onfido-openapi-spec/tree/v1.0.0). 
 
-## Support
+### Swagger Editor and Postman
 
-We officially support these libraries, but for any libraries you generate with this specification, our Product Support team can only advise on a best-effort basis.
+You can export Onfido's OpenAPI specification to both [Swagger Editor](https://editor.swagger.io/) and [Postman](https://www.postman.com/) by importing the `output.json` file into the respective tools. 
 
-Please refer to https://developers.onfido.com and
-https://documentation.onfido.com for more detailed documentation about the
-Onfido API or [contact our Product Support team](mailto:api@onfido.com) via email for technical support.
